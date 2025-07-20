@@ -27,6 +27,8 @@ public class SecurityConfig {
                         .pathMatchers("/actuator/**", "/health").permitAll()
                         .pathMatchers("/auth/login", "/auth/callback", "/auth/success").permitAll()
                         .pathMatchers("/auth/status", "/auth/logout").authenticated()
+                        .pathMatchers("/mcp/admin/**").permitAll()
+                        .pathMatchers("/mcp/**").authenticated()
                         .anyExchange().authenticated()
                 )
                 .oauth2Login(oauth2 -> oauth2
